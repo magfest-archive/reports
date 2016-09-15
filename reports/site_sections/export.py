@@ -44,3 +44,10 @@ class Root:
                     row.append(getattr(attendee, col.name))
             out.writerow(row)
     export_model.restricted = [c.ACCOUNTS and c.STATS and c.PEOPLE and c.MONEY]
+
+    @set_csv_filename
+    @alias_to_site_section('summary')
+    @alias_to_site_section('summary', alias_name='all_attendees')
+    def valid_attendees(self):
+        return self.export_model(selected_model='attendee')
+    valid_attendees.restricted = [c.ACCOUNTS and c.STATS and c.PEOPLE and c.MONEY]
