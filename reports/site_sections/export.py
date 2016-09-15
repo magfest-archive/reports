@@ -45,19 +45,9 @@ class Root:
             out.writerow(row)
     export_model.restricted = [c.ACCOUNTS and c.STATS and c.PEOPLE and c.MONEY]
 
+    @set_csv_filename
+    @alias_to_site_section('summary')
+    @alias_to_site_section('summary', alias_name='all_attendees')
     def valid_attendees(self):
         return self.export_model(selected_model='attendee')
     valid_attendees.restricted = [c.ACCOUNTS and c.STATS and c.PEOPLE and c.MONEY]
-
-    def all_attendees(self):
-        return self.export_model(selected_model='attendee')
-    all_attendees.restricted = [c.ACCOUNTS and c.STATS and c.PEOPLE and c.MONEY]
-
-
-def redirect(url):
-    def inner(self):
-        raise HTTPRedirect(url)
-    return inner
-
-uber.site_sections.summary.Root.valid_attendees = redirect('../export/valid_attendees')
-uber.site_sections.summary.Root.all_attendees = redirect('../export/all_attendees')
