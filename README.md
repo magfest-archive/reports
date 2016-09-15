@@ -1,2 +1,2 @@
-# plugin_template
-Template for a new Uber/RAMS plugin
+# Uber reports
+This is a module which exposes some advanced reporting for ubersytem instances.
