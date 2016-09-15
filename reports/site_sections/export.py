@@ -55,7 +55,7 @@ class Root:
 
 
 def redirect(url):
-    def inner():
+    def inner(self):
         raise HTTPRedirect(url)
     return inner
 
