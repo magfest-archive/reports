@@ -7,7 +7,7 @@ from .automated_emails import *
 
 # magfest 8.5 compatibility
 from uber._version import __version__
-if float(__version__) > 2015.01:
+if float(__version__) > 2014.09:
     # TODO: we'll need to figure out how to do this stuff for mag8.5 which
     # is pre-sideboard. might still be easy.
     static_overrides(join(config['module_root'], 'static'))
