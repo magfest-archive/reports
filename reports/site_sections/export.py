@@ -9,7 +9,7 @@ class Root:
 
         return {
             'message': message,
-            'tables': sorted(model.__name__ for model in Session.all_models())
+            'tables': sorted(model.__name__ for model in get_all_models())
         }
     index.restricted = [c.ACCOUNTS and c.STATS and c.PEOPLE and c.MONEY]
 

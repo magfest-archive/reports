@@ -6,7 +6,7 @@ class Root:
     def index(self, message='', all_instances=None):
         return {
             'message': message,
-            'tables': sorted(model.__name__ for model in Session.all_models()),
+            'tables': sorted(model.__name__ for model in get_all_models()),
             'attendees': all_instances
         }
     index.restricted = [c.ACCOUNTS and c.STATS and c.PEOPLE and c.MONEY]
