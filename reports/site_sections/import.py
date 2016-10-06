@@ -77,5 +77,5 @@ class Root:
 
         all_instances = session.query(model).filter(model.id.in_(id_list)).all() if id_list else None
 
-        return self.csv_import(message, all_instances)
+        return self.index(message, all_instances)
     import_model.restricted = [c.ACCOUNTS and c.STATS and c.PEOPLE and c.MONEY]
