@@ -7,7 +7,7 @@ This attempts to import a csv file for the table you select. <strong>Please do n
 
 <form action="import_model" method="post" enctype="multipart/form-data">
     <select name="selected_model">
-        {% options tables %}
+        {{ options(tables) }}
     </select><br />
     <input type="file" name="model_import" /><br />
     <select name="date_format">
@@ -29,7 +29,7 @@ This attempts to import a csv file for the table you select. <strong>Please do n
         <th>When</th>
     </tr></thead>
 {% for attendee in attendees %}
-    <tr bgcolor="{% cycle #FFFFFF,#DDDDDD %}">
+    <tr bgcolor="{{ loop.cycle('#FFFFFF', '#DDDDDD') }}">
         <td id="uuid">
             {{ attendee.id }}
         </td>
